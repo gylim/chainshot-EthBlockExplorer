@@ -19,6 +19,10 @@ After downloading this repo from github and installing the node packages with `n
 
 ✅ Polls network for new blocks every 15s and displays it on the home page
 
+✅ Polls network for average gas price every 15s
+
+✅ Click onto any block on the home page to view block details
+
 ✅ Click onto any transaction listed in a block to view its details
 
 ✅ Switch between Mainnet, Rinkeby and Goerli networks from dropdown menu
@@ -29,5 +33,4 @@ After downloading this repo from github and installing the node packages with `n
 
 ### Future Work
 
-- Make the navbar aware of routing changes
-- Determine the gas price based on how much has been spent on the latest transactions. For example, you could use the average of the last 500 transactions to determine the current expected price
+- Make the navbar update the active tab when navigating with in-page links

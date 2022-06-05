@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import useInterval from 'use-interval';
 import {Card, Spinner} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
+import { generatePath } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Home() {
@@ -26,9 +28,10 @@ export default function Home() {
     }, 15000)
 
     let blockArr = blocks.length ? blocks.map((block, idx) => (
-        <Card 
-        bg={idx === 0 ? 'primary' : 'light'} 
-        text={idx === 0 ? 'light' : 'dark'} 
+      <LinkContainer to={generatePath("/block/:num", {num: block.number.toString()})}>
+        <Card
+        bg={idx === 0 ? 'primary' : 'light'}
+        text={idx === 0 ? 'light' : 'dark'}
         className='mb-2'>
           <Card.Header># {block.number}</Card.Header>
           <Card.Body>
@@ -41,6 +44,7 @@ export default function Home() {
             <Card.Text>{block.transactions.length} txns</Card.Text>
           </Card.Body>
         </Card>
+      </LinkContainer>
       )) : <div><Spinner animation="border" /><span>...Loading</span></div>
 
     return(

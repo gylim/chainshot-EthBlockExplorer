@@ -17,7 +17,7 @@ export default function BlockNum() {
 
     const txnLinks = block ? block.transactions.map((txn) => (
             <LinkContainer to={generatePath("/tx/*", {"*": txn})}>
-                <ListGroup.Item action variant="light">{txn}</ListGroup.Item>
+                <ListGroup.Item action variant="light" eventKey="txn">{txn}</ListGroup.Item>
             </LinkContainer>
     )) : <span><Spinner animation="border" /><p>...Loading</p></span>;
 

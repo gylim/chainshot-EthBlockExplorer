@@ -31,6 +31,11 @@ app.get('/block', async (req, res) => {
     res.send({ block });
 });
 
+app.get('/blockWtxn', async (req, res) => {
+    const blockTxn = await provider.getBlockWithTransactions('latest');
+    res.send({ blockTxn });
+})
+
 app.get('/tx/:txhash', async (req, res) => {
     const {txhash} = req.params;
     const txn = await provider.getTransaction(txhash);
